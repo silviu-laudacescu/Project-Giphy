@@ -5,7 +5,6 @@ import GiphyList from "./GiphyList";
 
 const App = () => {
   const [state, setState] = useState([]);
-  console.log(state);
 
   const onTermSubmit = async (term) => {
     const response = await giphy.get("/search", {
@@ -20,7 +19,7 @@ const App = () => {
   return (
     <div className="ui container">
       <SearchBox onFormSubmit={onTermSubmit} />
-      <GiphyList gifs={state}/>
+      <GiphyList gifs={state} />
     </div>
   );
 };
