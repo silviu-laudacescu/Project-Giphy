@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import SearchBox from "./SearchBox";
 import giphy from "../api/giphy";
+import GiphyList from "./GiphyList";
 
 const App = () => {
   const [state, setState] = useState([]);
   console.log(state);
+
   const onTermSubmit = async (term) => {
     const response = await giphy.get("/search", {
       params: {
@@ -18,7 +20,7 @@ const App = () => {
   return (
     <div className="ui container">
       <SearchBox onFormSubmit={onTermSubmit} />
-      <div></div>
+      <GiphyList gifs={state}/>
     </div>
   );
 };
