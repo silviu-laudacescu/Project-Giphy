@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Project-Giphy/static/css/main.a3e2952d.css",
+    "main.js": "/Project-Giphy/static/js/main.faacbf79.js",
+    "index.html": "/Project-Giphy/index.html",
+    "main.a3e2952d.css.map": "/Project-Giphy/static/css/main.a3e2952d.css.map",
+    "main.faacbf79.js.map": "/Project-Giphy/static/js/main.faacbf79.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a3e2952d.css",
+    "static/js/main.faacbf79.js"
+  ]
+}
