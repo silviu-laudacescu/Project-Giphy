@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const GiphyCard = (props) => {
+const GifCard = (props) => {
   const [spans, setSpans] = useState(0);
   const ref = useRef();
 
@@ -19,10 +19,10 @@ const GiphyCard = (props) => {
       <img
         ref={ref}
         alt={props.gif.title}
-        src={props.gif.images.original.url}
+        src={props.gif.images.preview_webp.url}
       />
     </div>
   );
 };
 
-export default GiphyCard;
+export default GifCard;

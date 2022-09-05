@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./SearchBox.css";
+import { BsSearch } from "react-icons/bs";
 
 const SearchBox = ({ onFormSubmit }) => {
   const [term, setTerm] = useState("");
@@ -8,6 +9,8 @@ const SearchBox = ({ onFormSubmit }) => {
     event.preventDefault();
 
     onFormSubmit(term);
+
+    window.localStorage.setItem("SEARCHED_TEXT", JSON.stringify(term));
   };
 
   useEffect(() => {
@@ -16,36 +19,20 @@ const SearchBox = ({ onFormSubmit }) => {
   }, []);
 
   return (
-    <div className="container">
-      <form onSubmit={onSubmit}>
-        {/* <label>VSp</label> */}
+    <div className="search-container">
+      <form className="search-bar" onSubmit={onSubmit}>
         <input
           placeholder="Search for GIFs"
           value={term}
           type="text"
           onChange={(e) => setTerm(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <button type="submit">
+          <BsSearch />
+        </button>
       </form>
     </div>
   );
 };
 
 export default SearchBox;
-
-// return (
-//   <div className="search-bar ui segment">
-//     <form onSubmit={onSubmit} className="ui form">
-//       <div className="field">
-//         <label>Giphy Search</label>
-//         <input
-//         placeholder="Search for GIFs"
-//           value={term}
-//           type="text"
-//           onChange={(e) => setTerm(e.target.value)}
-//         />
-//       </div>
-//     </form>
-//   </div>
-// );
-// };
