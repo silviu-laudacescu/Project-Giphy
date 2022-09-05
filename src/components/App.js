@@ -6,12 +6,15 @@ import "./App.css";
 
 const App = () => {
   const [state, setState] = useState([]);
-console.log(state);
 
   useEffect(() => {
     const data = window.localStorage.getItem("SEARCHED_ITEMS");
     if (data !== null) setState(JSON.parse(data));
   }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("SEARCHED_ITEMS", JSON.stringify(state));
+  }, [state]);
 
   const onTermSubmit = async (term) => {
     const response = await giphy.get("/search", {
@@ -23,15 +26,10 @@ console.log(state);
     setState(response.data.data);
 
     window.localStorage.setItem("SEARCHED_TEXT", JSON.stringify(term));
-    window.localStorage.setItem(
-      "SEARCHED_ITEMS",
-      JSON.stringify(response.data.data)
-    );
   };
 
   return (
     <div className="container">
-      {/* <h3 className="title">GIFRUS</h3> */}
       <SearchBox onFormSubmit={onTermSubmit} />
       <GifList gifs={state} />
     </div>
