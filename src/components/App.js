@@ -12,10 +12,6 @@ const App = () => {
     if (data !== null) setState(JSON.parse(data));
   }, []);
 
-  useEffect(() => {
-    window.localStorage.setItem("SEARCHED_ITEMS", JSON.stringify(state));
-  }, [state]);
-
   const onTermSubmit = async (term) => {
     const response = await giphy.get("/search", {
       params: {
@@ -25,7 +21,10 @@ const App = () => {
 
     setState(response.data.data);
 
-    window.localStorage.setItem("SEARCHED_TEXT", JSON.stringify(term));
+    window.localStorage.setItem(
+      "SEARCHED_ITEMS",
+      JSON.stringify(response.data.data)
+    );
   };
 
   return (

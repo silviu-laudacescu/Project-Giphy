@@ -19,7 +19,7 @@ const GifCard = (props) => {
       <img
         ref={ref}
         alt={props.gif.title}
-        src={props.gif.images.preview_webp.url}
+        src={props.gif.images.preview_gif.url}
       />
     </div>
   );

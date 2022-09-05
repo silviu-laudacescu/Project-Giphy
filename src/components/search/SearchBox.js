@@ -9,7 +9,7 @@ const SearchBox = ({ onFormSubmit }) => {
     event.preventDefault();
 
     onFormSubmit(term);
-
+    
     window.localStorage.setItem("SEARCHED_TEXT", JSON.stringify(term));
   };
 
