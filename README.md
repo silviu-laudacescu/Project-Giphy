@@ -2,7 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Application that consumes the giphy.com api
 Used React, hook system, axios, css, html.
 
 
